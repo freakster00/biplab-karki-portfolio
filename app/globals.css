@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --accent: #666666;
-  --muted: #f5f5f5;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --accent: #888888;
+  --muted: #1a1a1a;
+  --border: #222222;
+  --card: #111111;
+  --highlight: #ffffff;
 }
 
 @theme inline {
@@ -15,8 +18,8 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 2;
+  padding: 2;
   box-sizing: border-box;
 }
 
@@ -45,16 +48,18 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 ::selection {
-  background: #0a0a0a;
-  color: #ffffff;
+  background: #ffffff;
+  color: #0a0a0a;
 }
 
 /* Premium text styling */
 .text-gradient {
-  background: linear-gradient(135deg, #0a0a0a 0%, #666666 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -136,20 +141,20 @@ body {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0a0a0a;
-  border-radius: 4px;
+  background: #333333;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: #555555;
 }
 
 /* Split text animation helper */
@@ -172,7 +177,20 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 25s linear infinite;
 }
 
 /* Floating animation */
@@ -205,10 +223,91 @@ body {
   animation: pulse-ring 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 }
 
-/* Grid pattern background */
+/* Grid pattern background - dark theme */
 .grid-pattern {
   background-image: 
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
+
+/* Gradient overlays for sections */
+.gradient-overlay {
+  background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,1) 100%);
+}
+
+.gradient-overlay-top {
+  background: linear-gradient(0deg, rgba(10,10,10,0) 0%, rgba(10,10,10,1) 100%);
+}
+
+/* Text reveal animation */
+.text-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Video container styling */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.8) 100%);
+  pointer-events: none;
+}
+
+/* Premium card styling */
+.premium-card {
+  background: linear-gradient(135deg, #111111 0%, #0a0a0a 100%);
+  border: 1px solid #222222;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.premium-card:hover {
+  border-color: #444444;
+  transform: translateY(-5px);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+/* Line decoration */
+.line-decoration::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: #444444;
+  transform: translateY(-50%);
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Stagger children delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
