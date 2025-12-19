@@ -52,9 +52,9 @@ export default function Contact() {
             Get In Touch
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Let&apos;s Work
+            Let&apos;s Build
             <br />
-            <span className="text-gray-600">Together</span>
+            <span className="text-gray-600">Something Great</span>
           </h2>
         </motion.div>
 
@@ -68,8 +68,9 @@ export default function Contact() {
               viewport={{ once: true }}
               className="text-xl text-gray-400 leading-relaxed"
             >
-              Have a project in mind or want to collaborate? I&apos;d love to hear 
-              from you. Let&apos;s create something amazing together.
+              Looking for investment opportunities, partnerships, or want to 
+              discuss the next big idea? I&apos;m always open to connecting with 
+              ambitious individuals and organizations.
             </motion.p>
 
             <div className="space-y-6">
